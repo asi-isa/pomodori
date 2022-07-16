@@ -10,14 +10,14 @@ export default function Home() {
   const waveAnim = {
     from: {
       opacity: 1,
-      width: 50,
-      height: 50,
+      width: 100,
+      height: 100,
       border: "3px solid white",
     },
     to: {
       opacity: 0,
-      width: 400,
-      height: 400,
+      width: 600,
+      height: 600,
       border: "20px solid white",
     },
     loop: true,
@@ -37,7 +37,7 @@ export default function Home() {
         <div className={styles.pomodori_con}>
           <div className={styles.pomodori}>
             33:33
-            {Array.from([300, 500, 700]).map((delay) => {
+            {Array.from([500, 700, 900]).map((delay) => {
               return (
                 <animated.div
                   className={styles.circle_fade}
