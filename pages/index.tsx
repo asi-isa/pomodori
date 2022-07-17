@@ -5,28 +5,9 @@ import { BsGrid } from "react-icons/bs";
 import { VscFlame } from "react-icons/vsc";
 
 import styles from "../styles/Home.module.css";
+import Wave from "../comps/anim/Wave";
 
 export default function Home() {
-  const waveAnim = useSpring({
-    from: {
-      opacity: 1,
-      width: 100,
-      height: 100,
-      border: "3px solid white",
-    },
-    to: {
-      opacity: 0,
-      width: 600,
-      height: 600,
-      border: "20px solid white",
-    },
-    loop: { reverse: true },
-    delay: 500,
-    config: { ...config.gentle, duration: 7000 },
-  });
-
-  const trail = useTrail(3, waveAnim);
-
   return (
     <main className={styles.main}>
       <div className={styles.main_border}>
@@ -40,15 +21,7 @@ export default function Home() {
         <div className={styles.pomodori_con}>
           <div className={styles.pomodori}>
             33:33
-            {trail.map((style, i) => {
-              return (
-                <animated.div
-                  key={i}
-                  className={styles.circle_fade}
-                  style={style}
-                />
-              );
-            })}
+            <Wave numWaves={4} />
           </div>
 
           <div className={styles.btns}>
