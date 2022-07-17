@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import { Spring, animated, useSpring, config } from "react-spring";
+import { Spring, animated, useSpring, config, useTrail } from "react-spring";
 import { BsGrid } from "react-icons/bs";
 import { VscFlame } from "react-icons/vsc";
 
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const waveAnim = {
+  const waveAnim = useSpring({
     from: {
       opacity: 1,
       width: 100,
@@ -20,9 +20,12 @@ export default function Home() {
       height: 600,
       border: "20px solid white",
     },
-    loop: true,
-    config: { duration: 7000 },
-  };
+    loop: { reverse: true },
+    delay: 500,
+    config: { ...config.gentle, duration: 7000 },
+  });
+
+  const trail = useTrail(3, waveAnim);
 
   return (
     <main className={styles.main}>
@@ -37,11 +40,12 @@ export default function Home() {
         <div className={styles.pomodori_con}>
           <div className={styles.pomodori}>
             33:33
-            {Array.from([500, 700, 900]).map((delay) => {
+            {trail.map((style, i) => {
               return (
                 <animated.div
+                  key={i}
                   className={styles.circle_fade}
-                  style={useSpring({ ...waveAnim, delay })}
+                  style={style}
                 />
               );
             })}
