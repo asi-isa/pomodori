@@ -5,7 +5,7 @@ import { BsGrid } from "react-icons/bs";
 import { VscFlame } from "react-icons/vsc";
 
 import styles from "../styles/Home.module.css";
-import Wave from "../comps/anim/Wave";
+import PatternSVG from "../comps/anim/PatternSVG";
 
 export default function Home() {
   return (
@@ -21,8 +21,9 @@ export default function Home() {
         <div className={styles.pomodori_con}>
           <div className={styles.pomodori}>
             33:33
-            <Wave numWaves={4} />
+            {/* <Wave numWaves={4} /> */}
           </div>
+          <PatternSVG />
 
           <div className={styles.btns}>
             <div className={styles.btn}>STOP</div>
