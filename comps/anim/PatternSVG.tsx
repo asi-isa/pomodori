@@ -39,8 +39,8 @@ function Pattern({
     },
     // boxShadow: toggle ? "0 0 5px 50px white" : "0 0 0 0",
     config: { duration: 21000 },
-    loop: { reverse: true },
-    delay: 500,
+    loop: { reverse: true, delay: 500 },
+    reverse: true,
   });
 
   function getTotalLength(ref: SVGRectElement): void {
